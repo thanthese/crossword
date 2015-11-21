@@ -1,4 +1,4 @@
-This is a basic tool to help with [mini](www.nytimes.com/crosswords/game/mini) crossword construction. You give it a dictionary, a partially filled grid like this:
+This is a basic tool to help with [mini](http://www.nytimes.com/crosswords/game/mini) crossword construction. You give it a dictionary, a partially filled grid like this:
 
     SLATE
     .E...
