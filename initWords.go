@@ -2,9 +2,48 @@ package main
 
 func initWords(grid [][]byte, dict []string) []word {
 	words := buildCoords(grid)
+
+	ws := getWordsOnGrids(words, grid)
+	dict = addToDict(ws, dict)
+
 	addBuddies(words)
 	addCandidates(words, dict)
 	return words
+}
+
+// Return the words that were pre-filled-in on the grid. They must be words
+// because the user used them.
+func getWordsOnGrids(words []word, grid [][]byte) []string {
+	ws := []string{}
+out:
+	for _, word := range words {
+		str := ""
+		for _, coord := range word.letters {
+			letter := grid[coord.x][coord.y]
+			if letter == '.' {
+				continue out
+			}
+			str += string(letter)
+		}
+		ws = append(ws, str)
+	}
+	return ws
+}
+
+// Add the words to the dict, if they're not already there. Returns a new dict,
+// and does not modify the old one.
+func addToDict(words []string, dict []string) []string {
+	out := append([]string{}, dict...)
+out:
+	for _, w := range words {
+		for _, d := range out {
+			if d == w {
+				continue out
+			}
+		}
+		out = append(out, w)
+	}
+	return out
 }
 
 // Create the words and add the fundamental, coordinate-related pieces: letters
