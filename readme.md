@@ -76,7 +76,7 @@ Anything after the first blank line in grid is considered a comment. This lets y
 
 # Dictionaries
 
-There is a tension with the dictionary: too many words and the grid becomes too obscure. Too few words and there aren't any solutions. If you find a good dictionary file to use, let me know!
+There is a tension with the dictionary: too many words and the grid becomes too obscure. Too few words and there aren't any solutions. The best free dictionary I've found comes from [norvig](http://norvig.com/ngrams/). If you find a better one let me know!
 
 The program is smart! It adds words that were pre-populated in the grid to the active dictionary (only if they don't appear there already).
 
